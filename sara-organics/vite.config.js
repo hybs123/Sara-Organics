@@ -7,6 +7,7 @@ export default defineConfig({
     rollupOptions: {
       input: '/src/main.jsx',
      // Make sure this is correctly set
+       // Make sure this is correctly set
     },
   },
 });
