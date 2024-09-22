@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: '/src/main.jsx',
-      external: ['/src/main.jsx'] // Make sure this is correctly set
+       // Make sure this is correctly set
     },
   },
 });
