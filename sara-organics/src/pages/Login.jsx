@@ -15,9 +15,10 @@ const Login = () => {
     image: null,
   });
 
+  const url = 'http://localhost:3001';
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    const url = currentState === 'login' ? 'http://localhost:3001/login' : 'http://localhost:3001/register';
+    const url = currentState === 'login' ? `${url}/login` : `${url}/register`;
 
     // Prepare JSON data
     const dataToSend = {

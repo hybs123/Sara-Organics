@@ -391,6 +391,8 @@ const newUser = new User({
   app.post('/uploads', upload.array('productImage', 10), async (req, res) => {
     try {
       // Map through the uploaded files and create paths
+      console.log("Uploaded files:", req.files);
+    console.log("Form data:", req.body);
       const imgPaths = req.files.map(file => `/uploads/${file.filename}`);
   
       // Create a new product model with form data and image paths

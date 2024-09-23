@@ -17,6 +17,8 @@ const Placeorder = () => {
   const [method,setMethod] = useState('cod');
   const [zip,setzip] = useState();
   const {navigate,user,orderplaced,getCartAmount,delivery_fee} = useContext(ShopContext);
+
+  const url = 'http://localhost:3001';
  
   useEffect(() => {
     // Load Razorpay script
@@ -37,7 +39,7 @@ const Placeorder = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:3001/api/create-order', {
+      const response = await fetch(`${url}/api/create-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

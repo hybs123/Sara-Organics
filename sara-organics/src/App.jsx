@@ -1,5 +1,5 @@
 import React, { Profiler } from 'react'
-import { Route, Routes, ScrollRestoration } from 'react-router-dom'
+import { HashRouter, Route, Routes, ScrollRestoration } from 'react-router-dom'
 import Home from './pages/Home'
 import Collection from './pages/Collection'
 import Contact from './pages/Contact'
@@ -15,17 +15,19 @@ import SearchBar from './components/SearchBar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Profile from './pages/Profile'
-import ScrollToTop from './components/Scrolltotop'
-import Backendorders from './pages/backendorders'
-import Adminpanel from './pages/adminpanel'
-import Backend from './pages/backend'
+import Profile from './pages/Profile';
+import ScrollToTop from './components/Scrolltotop';
+import Backendorders from './pages/Backendorders'
+import Backend from './pages/Backend'
+import AdminPanel from './pages/Adminpanel'
+
 
 // import ScrollToTop from './components/Scrolltotop'
 
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] text-yellow-900'>
+    <HashRouter>
     <ToastContainer />
       <Navbar />
       <SearchBar />
@@ -44,12 +46,12 @@ const App = () => {
         
         <Route path='/backendorders' element={<Backendorders />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/adminpanel' element={<Adminpanel />} />
+        <Route path='/adminpanel' element={<AdminPanel />} />
         
         
       </Routes>
       <Footer />
-
+</HashRouter>
     </div>
   )
 }

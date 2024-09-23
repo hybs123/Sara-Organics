@@ -5,6 +5,7 @@ const Review = (props) => {
     const { review, setReview,user,reviewloading,setreviewloading,renderStars } = useContext(ShopContext);
     const [rating, setRating] = useState('');
     const [reviewText, setReviewText] = useState('');
+    const url = 'http://localhost:3001'
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -15,7 +16,7 @@ const Review = (props) => {
         }
     
         try {
-            const response = await fetch('http://localhost:3001/review', {
+            const response = await fetch(`${url}/review`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

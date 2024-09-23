@@ -5,7 +5,7 @@ import Productitem from './Productitem';
 import {Card, CardBody, CardFooter, Image,Skeleton} from "@nextui-org/react";
 
 const BestSeller = () => {
-
+  const url = 'http://localhost:3001'
     const {products,loading,navigate} = useContext(ShopContext);
     const [bestseller,setBestseller] = useState([]);
 
@@ -48,7 +48,7 @@ const BestSeller = () => {
                 
                 alt={item.productname}
                 className="aspect-1"
-                src={`http://localhost:3001${item.image[0]}`}
+                src={`${url}${item.image[0]}`}
               />
             </CardBody>
             <CardFooter className="text-small justify-between">

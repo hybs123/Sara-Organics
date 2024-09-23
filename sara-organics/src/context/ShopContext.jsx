@@ -32,7 +32,7 @@ const ShopContextProvider = (props)=> {
     const [reviewloading,setreviewloading] = useState(true);
     const [starloading,setstarloading] = useState(true);
 
-   
+   const url = 'http://localhost:3001/'
 
     useEffect(() => {
         async function getProducts() {
@@ -57,7 +57,7 @@ const ShopContextProvider = (props)=> {
 
     useEffect(() => {
         
-        axios.get("http://localhost:3001/checkAuth", {
+        axios.get(`${url}checkAuth`, {
             headers: {
                 Authorization: Cookies.get("token"),
             }, withCredentials: true
@@ -77,7 +77,7 @@ const ShopContextProvider = (props)=> {
             return;
         }
     
-        axios.get("http://localhost:3001/addtocart", {
+        axios.get(`${url}addtocart`, {
             params: { user: user.username }
         })
         .then(response => {
@@ -102,7 +102,7 @@ const ShopContextProvider = (props)=> {
             return;
         }
     
-        axios.get("http://localhost:3001/orders", {
+        axios.get(`${url}orders`, {
             params: { user: user.username }
         })
         .then(response => {
@@ -123,7 +123,7 @@ const ShopContextProvider = (props)=> {
             return;
         }
 
-        axios.get("http://localhost:3001/review", {
+        axios.get(`${url}review`, {
             params: { product: productreview }
         })
         .then(response => {
@@ -140,7 +140,7 @@ const ShopContextProvider = (props)=> {
 
     useEffect(() => {
         if (user && cart && cartpush) {
-            axios.post("http://localhost:3001/addtocart", {
+            axios.post(`${url}addtocart`, {
                 user: user.username,
                 cart: cart
             })
@@ -315,7 +315,7 @@ const ShopContextProvider = (props)=> {
         try {
             // Create an array of promises for each cart item
             console.log("phone:",user.Phone,'Address:',user.Address)
-                axios.post("http://localhost:3001/mail", {
+                axios.post(`${url}mail`, {
                    
                     user: user,
                     
@@ -331,7 +331,7 @@ const ShopContextProvider = (props)=> {
                 })
 
                
-                axios.post("http://localhost:3001/orderplaced", {
+                axios.post(`${url}orderplaced`, {
                    
                     id: user.username,
                     address:user.Address,

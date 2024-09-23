@@ -15,6 +15,10 @@ const AdminPanel = () => {
   const [totalrevenue,setTotalrevenue] = useState(0);
 
 
+
+  const url = 'http://localhost:3001';
+
+
   // const checkadmin = ()=>{
   //   console.log(admin)
   //   if(!admin){
@@ -35,7 +39,7 @@ const AdminPanel = () => {
     // Fetch orders from backend
     if(!loading){
 
-      axios.get("http://localhost:3001/ordersbackend")
+      axios.get(`${url}/ordersbackend`)
         .then(response => {
           const ordersData = response.data.ordersbackend;
           setOrdersAll(ordersData);
@@ -71,7 +75,7 @@ const AdminPanel = () => {
   
 
   const onTrackChange = (username, orderitemid, orderitemsize, track) => {
-    axios.post("http://localhost:3001/ordersbackend", {
+    axios.post(`${url}/ordersbackend`, {
       username: username,
       orderitemid: orderitemid,
       track: track,
@@ -138,7 +142,7 @@ const AdminPanel = () => {
               detailedOrders.slice(detailedOrders.length-3,detailedOrders.length).reverse().map((item,index) => (
                 <div key={index} className="grid grid-cols-6 gap-4 bg-yellow-100 my-3 text-center">
     
-                  <img className='col-span-1 aspect-1' src={`http://localhost:3001${item.productDetails.image[0]}`} alt={item.productDetails.productname} />
+                  <img className='col-span-1 aspect-1' src={`${url}${item.productDetails.image[0]}`} alt={item.productDetails.productname} />
                   <p className='col-span-1 md:text-[16px] text-[10px]'>{item.productDetails.productname}</p>
                   <p className='col-span-2 md:text-[16px] text-[10px]'>Buyer: {item.username}</p>
                   <p className='col-span-1 md:text-[16px] text-[10px]'>Size: {item.orderitemsize}</p>

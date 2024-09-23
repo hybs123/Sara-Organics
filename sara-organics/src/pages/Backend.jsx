@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 const Backend = () => {
 
   const {user,userloading,navigate} = useContext(ShopContext);
+  const url = 'http://localhost:3001';
 
   // useEffect(()=>{
   //   console.log("User in admin is:",user,userloading)
@@ -101,7 +102,7 @@ const Backend = () => {
     files.forEach(file => form.append('productImage', file));
 
     try {
-      const response = await axios.post('http://localhost:3001/uploads', form, {
+      const response = await axios.post(`${url}/uploads`, form, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

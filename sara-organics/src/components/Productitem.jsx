@@ -3,6 +3,7 @@ import { ShopContext } from '../context/ShopContext'
 import { Link } from 'react-router-dom';
 
 const Productitem = ({id,image,name,price}) => {
+  const url = 'http://localhost:3001'
 
     const {currency} = useContext(ShopContext);
 
@@ -11,7 +12,7 @@ const Productitem = ({id,image,name,price}) => {
         <div className='overflow-hidden aspect-w-3 aspect-h-3'>
         
 
-        {image && image[0] && <img className='hover:scale-110 transition ease-in-out' src={`http://localhost:3001${image[0]}`} />}
+        {image && image[0] && <img className='hover:scale-110 transition ease-in-out' src={`${url}${image[0]}`} />}
         
             
 

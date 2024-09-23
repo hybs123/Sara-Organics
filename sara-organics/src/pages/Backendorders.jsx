@@ -9,7 +9,7 @@ const Backendorders = () => {
   const [detailedOrders, setDetailedOrders] = useState([]);
 
 
-
+  const url = 'http://localhost:3001';
 
   const {user,userloading,navigate} = useContext(ShopContext);
 
@@ -27,7 +27,7 @@ const Backendorders = () => {
 
   useEffect(() => {
     // Fetch orders from backend
-    axios.get("http://localhost:3001/ordersbackend")
+    axios.get(`${url}/ordersbackend`)
       .then(response => {
         const ordersData = response.data.ordersbackend;
         setOrdersAll(ordersData);
@@ -40,7 +40,7 @@ const Backendorders = () => {
   }, [products]);
 
   const onTrackChange = (username, orderitemid, orderitemsize, track) => {
-    axios.post("http://localhost:3001/ordersbackend", {
+    axios.post(`${url}/ordersbackend`, {
       username: username,
       orderitemid: orderitemid,
       track: track,
@@ -76,7 +76,7 @@ const Backendorders = () => {
           <div className='py-4 border-t text-gray-700 border-b grid sm:grid-cols-[2fr_4fr] items-center gap-2' key={index}>
             {item.productDetails && item.productDetails.image && (
               <div>
-                <img className='' src={`http://localhost:3001${item.productDetails.image[0]}`} alt={item.productDetails.productname} />
+                <img className='' src={`${url}${item.productDetails.image[0]}`} alt={item.productDetails.productname} />
                 <p><strong>Product Name:</strong> {item.productDetails.productname}</p>
                 <p><strong>Price:</strong> {item.productDetails.price}</p>
                 {/* Render additional product details as needed */}

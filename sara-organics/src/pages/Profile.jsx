@@ -5,6 +5,7 @@ const Profile = () => {
     const { user, userloading, setuserloading } = useContext(ShopContext);
     const [img, setImg] = useState(null); // Initialize with null or undefined
     console.log('Profile', user);
+    const url = 'http://localhost:3001';
 
     useEffect(() => {
         if (user && user.image && user.image.length > 0) {
@@ -20,7 +21,7 @@ const Profile = () => {
     return (
         <div>
             {img ? (
-                <img className='max-w-[200px] border border-red-300 rounded-full' src={`http://localhost:3001${img}`} alt="Profile" />
+                <img className='max-w-[200px] border border-red-300 rounded-full' src={`${url}${img}`} alt="Profile" />
             ) : (
                 <p>No image available</p>
             )}

@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const LatestCollection = () => {
+  const url = 'http://localhost:3001'
 
     const {products,loading,navigate} = useContext(ShopContext);
     const [latestProducts,setLatestProducts] = useState([]);
@@ -63,7 +64,7 @@ const LatestCollection = () => {
                 
                 alt={item.productname}
                 className="aspect-1"
-                src={`http://localhost:3001${item.image[0]}`}
+                src={`${url}${item.image[0]}`}
               />
               
             </CardBody>

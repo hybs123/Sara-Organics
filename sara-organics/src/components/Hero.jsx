@@ -7,6 +7,7 @@ const Hero = () => {
   const { products, loading,navigate } = useContext(ShopContext);
   const [img, setImg] = useState('');
   const [prodId, setProdId] = useState('');
+  const url = 'http://localhost:3001'
 
   useEffect(() => {
     if (products.length > 0) {
@@ -38,7 +39,7 @@ const Hero = () => {
       {/* Hero right side */}
         {prodId && img && (
         <Link className='w-full sm:w-1/2' to={`/product/${prodId}`}>
-        <img className='w-full' src={`http://localhost:3001${img}`} alt="Latest Arrival" />
+        <img className='w-full' src={`${url}${img}`} alt="Latest Arrival" />
 
         </Link>
       )}  

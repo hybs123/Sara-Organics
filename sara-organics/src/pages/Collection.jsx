@@ -13,6 +13,7 @@ const Collection = () => {
   const [category,setCategory] = useState([]);
   const [subCategory,setsubCategory] = useState([]);
   const [sortType,setSortType] = useState('relavent');
+  const url = 'http://localhost:3001';
 
   const toggleCategory = (e)=>{
     if(category.includes(e.target.value)){
@@ -167,7 +168,7 @@ const Collection = () => {
                 
                 alt={item.productname}
                 className="aspect-1"
-                src={`http://localhost:3001${item.image[0]}`}
+                src={`${url}${item.image[0]}`}
               />
             </CardBody>
             <CardFooter className="text-small justify-between">
